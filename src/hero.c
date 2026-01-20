@@ -35,5 +35,5 @@ void editHero(Hero* h) {
     readString("New power: ", h->power, MAX_POWER);
     h->threatLevel = readInt("New threat level (0-10): ", 0, 10);
     readString("New district: ", h->district, MAX_DISTRICT);
-    h->status = readInt("New status (0-4): ", 0, 4);
+    h->status = readInt("New status (0-Active 1-Sleeping 2-Mission 3-Injured 4-Imprisoned) ", 0, 4);
 }

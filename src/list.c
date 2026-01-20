@@ -1,7 +1,10 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "list.h"
+
+
 
 Node* addNode(Node* head, Hero h) {
     Node* n = malloc(sizeof(Node));
@@ -56,4 +59,43 @@ void freeList(Node* head) {
         head = head->next;
         free(tmp);
     }
+}
+
+
+void swapData(Node* a, Node* b) {
+    Hero temp = a->data;
+    a->data = b->data;
+    b->data = temp;
+}
+
+
+void sortList(Node* head, int type) {
+    int swapped;
+    Node* ptr1;
+    Node* lptr = NULL;
+
+    if (head == NULL) return;
+
+    do {
+        swapped = 0;
+        ptr1 = head;
+
+        while (ptr1->next != lptr) {
+            int condition = 0;
+            if (type == 0) {
+                if (strcmp(ptr1->data.nickname, ptr1->next->data.nickname) > 0) condition = 1;
+            }
+            else {
+                if (ptr1->data.threatLevel < ptr1->next->data.threatLevel) condition = 1;
+            }
+
+            if (condition) {
+                swapData(ptr1, ptr1->next);
+                swapped = 1;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while (swapped);
+    printf("Lista posortowana.\n");
 }
