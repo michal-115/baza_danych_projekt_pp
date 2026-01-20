@@ -1,0 +1,4 @@
+Superman;0;Latanie i sila;1;Metropolis;0
+Joker;1;Szalenstwo;9;Gotham;4
+Batman;0;Gad¿ety i spryt;2;Gotham;0
+Deadpool;2;Regeneracja;5;Nowy Jork;2
